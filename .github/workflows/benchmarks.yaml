@@ -25,13 +25,13 @@ jobs:
       - name: Run All Benchmarks
         run: ./runAllJmh.sh
 
-      - name: Deploy Merged Benchmark Results to Gist
-        uses: exuanbo/actions-deploy-gist@v1
-        with:
-          token: ${{ secrets.TOKEN }}
-          gist_id: 016a70a392934d0e5a07a4d291731218
-          file_path: merged-jmh-results/merged-jmh-results.json
-          file_type: json
+      # - name: Deploy Merged Benchmark Results to Gist
+      #   uses: exuanbo/actions-deploy-gist@v1
+      #   with:
+      #     token: ${{ secrets.TOKEN }}
+      #     gist_id: 016a70a392934d0e5a07a4d291731218
+      #     file_path: merged-jmh-results/merged-jmh-results.json
+      #     file_type: json
 
       # - name: GH Pages Upload
       #   run: |
