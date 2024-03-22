@@ -26,7 +26,16 @@ public abstract class BenchmarksSetup {
 
 
     @Benchmark
-    public Config Coat_Creation(BenchmarkState state) throws ConfigValidationException, IOException {
+    public SimpleConfig Coat_Simple_Creation(BenchmarkState state) throws ConfigValidationException, IOException {
+      final Properties props= new Properties();
+      props.load(SimpleConfig.class.getResourceAsStream("/AppProps.properties"));
+      return SimpleConfigBuilder.from(props);
+    }
+
+
+
+    @Benchmark
+    public Config Coat_Complex_Creation(BenchmarkState state) throws ConfigValidationException, IOException {
       final Properties props= new Properties();
       props.load(Config.class.getResourceAsStream("/AppProps.properties"));
       return ConfigBuilder.from(props);

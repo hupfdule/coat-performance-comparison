@@ -6,10 +6,7 @@ import java.util.List;
 
 
 @Coat.Config
-public interface Config {
-  public String test1();
-
-  public int testInt1();
+public interface Config extends SimpleConfig {
 
   public List<LocalDate> listOfDates();
 
