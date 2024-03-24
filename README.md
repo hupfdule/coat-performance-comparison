@@ -1,45 +1,7 @@
-# Benchmarks Results
+# Benchmarks comparing Coat to other config libraries.
 
-Each push to the repository will trigger a benchmark run. The project uses a special build task which merges all the benchmark results into a single report file. Latest benchmark results will be viewable via GitHub Pages: [https://joel-jeremy.github.io/java-config-library-benchmarks/](https://joel-jeremy.github.io/java-config-library-benchmarks/)
+This repository is a clone of https://github.com/joeljeremy7/java-config-library-benchmarks with a few more tests for demonstrating the performance advantages of Coat over other config libraries.
 
-## Libraries
+See https://poiu-de.github.io/coat/user_guide/08_performance/ for an explanation of the results.
 
-(Alphabetical order)
-
-- [Avaje Config](https://avaje.io/config/)
-- [Cfg4j](https://github.com/cfg4j/cfg4j)
-- [Coat](https://poiu-de.github.io/coat/)
-- [Externalized Properties](https://github.com/joel-jeremy/externalized-properties)
-- [Gestalt Config](https://github.com/gestalt-config/gestalt)
-- [Lightbend Config](https://github.com/lightbend/config)
-- [MicroProfile Config - Geronimo](https://github.com/apache/geronimo-config)
-- [MicroProfile Config - Helidon](https://github.com/oracle/helidon)
-- [MicroProfile Config - KumuluzEE](https://github.com/kumuluz/kumuluzee-config-mp)
-- [MicroProfile Config - MicroBean](https://github.com/microbean/microbean-microprofile-config)
-- [MicroProfile Config - SmallRye](https://github.com/smallrye/smallrye-config)
-- [Owner](https://github.com/matteobaccan/owner)
-- [Spring Core](https://github.com/spring-projects/spring-framework) (Directly using Spring's [Environment](https://github.com/spring-projects/spring-framework/blob/main/spring-core/src/main/java/org/springframework/core/env/Environment.java))
-
-## Benchmark Setup
-
-Each library is setup with its "default" configurations. In addition to the defaults, additional configuration/setup is done to "load" a single `.properties` file. For the benchmark runs, each library will load properties/configuration from the loaded `.properties` file (all with exactly the same file contents).
-
-## Benchmark Run
-
-Benchmarks require Java 11.
-
-To run the benchmarks and generate reports, use the `runAllJmh.sh` script.
-
-## Adding New Benchmarks
-
-To introduce a new benchmark, create a new gradle subproject and:
-
-1. Create an `Benchmark` abstract class under `io.github.joeljeremy7.java.config.lib.benchmarks` package.
-2. Create benchmark methods in `Benchmark` class  
-    - Minimum required methods are:
-        1. Retrieve a `String` property/configuration
-        2. Retrieve an `int` property/configuration
-3. Create an `Avgt` and `Thrpt` nested class within `Benchmark` which extends the abstract `Benchmark` class so that they execute the same benchmarks.
-4. Annotate `Avgt` and `Thrpt` nested classes with appropriate JMH annotations to record results: avgt (ns) and thrpt (ms).
-5. Add the subproject's `jmh` task to the `runAllJmh.sh` script.
-6. Add project repository link to [Libraries](#libraries) section.
+The graphical result report can be accessed at https://hupfdule.github.io/coat-performance-comparison.
